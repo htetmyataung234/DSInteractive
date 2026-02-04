@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>H5P Viewer</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/h5p-standalone@3.9.0/dist/styles/h5p.css" />
+  <link rel="stylesheet" href="dist/styles/h5p.css" />
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 24px; }
     #h5p-container { max-width: 1100px; margin: 0 auto; }
@@ -14,7 +14,7 @@
 <body>
   <div id="h5p-container"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/h5p-standalone@3.9.0/dist/main.bundle.js" charset="UTF-8"></script>
+  <script src="dist/main.bundle.js" charset="UTF-8"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const params = new URLSearchParams(window.location.search);
@@ -28,8 +28,8 @@
 
       const options = {
         h5pJsonPath: basePath,
-        frameJs: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.9.0/dist/frame.bundle.js',
-        frameCss: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.9.0/dist/styles/h5p.css'
+        frameJs: 'dist/frame.bundle.js',
+        frameCss: 'dist/styles/h5p.css'
       };
 
       const el = document.getElementById('h5p-container');
