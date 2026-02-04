@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="_6NA6NtSRApt_course_id" version="1.0" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+      <general>
+        <title>
+          <langstring xml:lang="x-none">၂.၂.၁ Email နှင့် နေ့စဉ်ဘဝ အသုံးဝင်ပုံများ</langstring>
+        </title>
+      </general>
+      <lifecycle>
+        <version>
+          <langstring xml:lang="x-none">1</langstring>
+        </version>
+        <status>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Final</langstring>
+          </value>
+        </status>
+      </lifecycle>
+      <metametadata>
+        <metadatascheme>ADL SCORM 1.2</metadatascheme>
+      </metametadata>
+      <educational>
+        <typicallearningtime>
+          <datetime>PT0H0M0S</datetime>
+        </typicallearningtime>
+      </educational>
+      <rights>
+        <cost>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </cost>
+        <copyrightandotherrestrictions>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </copyrightandotherrestrictions>
+      </rights>
+    </lom>
+  </metadata>
+  <organizations default="၂.၂.၁_Email_နှင့်_နေ့စဉ်ဘဝ_အသုံးဝင်ပုံများ_ORG">
+    <organization identifier="၂.၂.၁_Email_နှင့်_နေ့စဉ်ဘဝ_အသုံးဝင်ပုံများ_ORG">
+      <title>၂.၂.၁ Email နှင့် နေ့စဉ်ဘဝ အသုံးဝင်ပုံများ</title>
+      <item identifier="_၂.၂.၁_Email_နှင့်_နေ့စဉ်ဘဝ_အသုံးဝင်ပုံများ_SCO" isvisible="true" identifierref="__6NA6NtSRApt_course_id_RES">
+        <title>၂.၂.၁ Email နှင့် နေ့စဉ်ဘဝ အသုံးဝင်ပုံများ</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="__6NA6NtSRApt_course_id_RES" type="webcontent" href="index_lms.html" adlcp:scormtype="sco">
+      <file href="story_content/thumbnail.jpg" />
+      <file href="mobile/63j1fWMVM7J.jpg" />
+      <file href="mobile/6r5tpz9nTOH.jpg" />
+      <file href="story_content/5lOI6Vp9LvP_44100_56_0.mp3" />
+      <file href="mobile/5ZMfQp6TrxS.jpg" />
+      <file href="story_content/6BtNzpqVM0j_44100_56_0.mp3" />
+      <file href="mobile/6qsCuu1Cz7Q.jpg" />
+      <file href="story_content/6mfYFS6lE3w_44100_56_0.mp3" />
+      <file href="mobile/61fkZC1rVBx.jpg" />
+      <file href="story_content/5w5h1cS3fSD_44100_56_0.mp3" />
+      <file href="mobile/6X5J1R7Z1Uj.jpg" />
+      <file href="story_content/6ktBwnqNBK4_44100_56_0.mp3" />
+      <file href="mobile/6OqjkUsO2RA.jpg" />
+      <file href="story_content/5W2wliwphjX_44100_56_0.mp3" />
+      <file href="meta.xml" />
+      <file href="story_content/user.js" />
+      <file href="html5/data/js/frame.js" />
+      <file href="html5/data/js/6LBtkvjT7hN.js" />
+      <file href="html5/data/js/data.js" />
+      <file href="html5/data/js/paths.js" />
+      <file href="html5/data/css/output.min.css" />
+      <file href="html5/lib/scripts/bootstrapper.min.js" />
+      <file href="html5/lib/scripts/frame.desktop.min.js" />
+      <file href="html5/lib/scripts/frame.mobile.min.js" />
+      <file href="html5/lib/scripts/slides.min.js" />
+      <file href="html5/lib/stylesheets/desktop.min.css" />
+      <file href="html5/lib/stylesheets/mobile.min.css" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-bold.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-light.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-regular.woff" />
+      <file href="analytics-frame.html" />
+      <file href="story.html" />
+      <file href="index_lms.html" />
+      <file href="lms/AICCComm.html" />
+      <file href="lms/blank.html" />
+      <file href="lms/browsersniff.js" />
+      <file href="lms/goodbye.html" />
+      <file href="lms/scormdriver.js" />
+    </resource>
+  </resources>
+</manifest>

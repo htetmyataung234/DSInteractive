@@ -1,0 +1,28 @@
+name: Generate Course List
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan for HTML Entry Points
+        run: |
+          # Finds both story.html and h5p.html
+          # Formats them into a JSON object: {"story": [...], "h5p": [...]}
+          
+          STORY_FILES=$(find . -name "story.html" -not -path '*/.*' | sed 's|^\./||' | jq -R . | jq -s .)
+          H5P_FILES=$(find . -name "h5p.html" -not -path '*/.*' | sed 's|^\./||' | jq -R . | jq -s .)
+          
+          echo "{ \"storyline\": $STORY_FILES, \"h5p\": $H5P_FILES }" > links.json
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add links.json
+          git commit -m "Update course list with Storyline and H5P" || exit 0
+          git push
