@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>H5P Viewer</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/main.bundle.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/styles/h5p.css" />
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 24px; }
     #h5p-container { max-width: 1100px; margin: 0 auto; }
@@ -15,6 +16,7 @@
   <div id="h5p-container"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/main.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/frame.bundle.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const basePath = params.get('path');
@@ -24,14 +26,26 @@
         '<p class="notice">Missing H5P path. Return to the course list and select an H5P item.</p>';
     } else {
       const options = {
-        h5pJsonPath: `${basePath}/h5p.json`,
+        h5pJsonPath: basePath,
         contentJsonPath: `${basePath}/content/content.json`,
-        librariesPath: basePath
+        librariesPath: basePath,
+        frameJs: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/frame.bundle.js',
+        frameCss: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/styles/h5p.css'
       };
+
+      const container = document.getElementById('h5p-container');
 
       // h5p-standalone exposes H5PStandalone globally
       // eslint-disable-next-line no-undef
-      new H5PStandalone.H5PStandalone('h5p-container', options);
+      if (H5PStandalone && H5PStandalone.H5P) {
+        // eslint-disable-next-line no-undef
+        new H5PStandalone.H5P(container, options);
+      } else if (H5PStandalone && H5PStandalone.H5PStandalone) {
+        // eslint-disable-next-line no-undef
+        new H5PStandalone.H5PStandalone('h5p-container', options);
+      } else {
+        container.innerHTML = '<p class="notice">H5P runtime failed to load.</p>';
+      }
     }
   </script>
 </body>

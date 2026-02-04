@@ -11,8 +11,9 @@ jobs:
 
       - name: Scan for Storyline and H5P
         run: |
-          python - <<'PY'
-          import json, os
+          python3 - <<'PY'
+          import json
+          import os
 
           def is_hidden(path):
             parts = path.replace('\\', '/').split('/')
@@ -26,11 +27,12 @@ jobs:
               continue
 
             if 'story.html' in files:
-              storyline.append(os.path.join(root, 'story.html').lstrip('./'))
+              rel = os.path.relpath(os.path.join(root, 'story.html'), '.')
+              storyline.append(rel.replace('\\', '/'))
 
             if 'h5p.json' in files:
-              path = root.lstrip('./')
-              h5p.append(f'h5p.html?path={path}')
+              rel_root = os.path.relpath(root, '.').replace('\\', '/')
+              h5p.append(f'h5p.html?path={rel_root}')
 
           storyline = sorted(set(storyline))
           h5p = sorted(set(h5p))
