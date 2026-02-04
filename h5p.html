@@ -16,7 +16,6 @@
   <div id="h5p-container"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/main.bundle.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/frame.bundle.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const basePath = params.get('path');
@@ -26,7 +25,7 @@
         '<p class="notice">Missing H5P path. Return to the course list and select an H5P item.</p>';
     } else {
       const options = {
-        h5pJsonPath: basePath,
+        h5pJsonPath: `${basePath}/h5p.json`,
         contentJsonPath: `${basePath}/content/content.json`,
         librariesPath: basePath,
         frameJs: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/frame.bundle.js',
@@ -37,12 +36,9 @@
 
       // h5p-standalone exposes H5PStandalone globally
       // eslint-disable-next-line no-undef
-      if (H5PStandalone && H5PStandalone.H5P) {
+      if (H5PStandalone && H5PStandalone.H5PStandalone) {
         // eslint-disable-next-line no-undef
-        new H5PStandalone.H5P(container, options);
-      } else if (H5PStandalone && H5PStandalone.H5PStandalone) {
-        // eslint-disable-next-line no-undef
-        new H5PStandalone.H5PStandalone('h5p-container', options);
+        new H5PStandalone.H5PStandalone(container, options);
       } else {
         container.innerHTML = '<p class="notice">H5P runtime failed to load.</p>';
       }
