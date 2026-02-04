@@ -1,45 +1,266 @@
-<main id="course-list">
-  <h2>Interactive Courses</h2>
-  <div id="storyline-container" class="course-section"></div>
-  <div id="h5p-container" class="course-section"></div>
-</main>
+<div class="page">
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Interactive Library</p>
+      <h1>Digital Skills Courses</h1>
+      <p class="subtitle">Browse Storyline lessons and H5P activities in one place.</p>
+    </div>
+    <div class="hero-actions">
+      <label class="search">
+        <span class="search-label">Search</span>
+        <input id="search-input" type="search" placeholder="Search courses..." autocomplete="off" />
+      </label>
+    </div>
+  </header>
+
+  <main id="course-list">
+    <section class="course-section">
+      <div class="section-header">
+        <h2>Storyline Courses</h2>
+        <span class="count" id="storyline-count">0 items</span>
+      </div>
+      <div id="storyline-container" class="course-grid"></div>
+    </section>
+
+    <section class="course-section">
+      <div class="section-header">
+        <h2>H5P Activities</h2>
+        <span class="count" id="h5p-count">0 items</span>
+      </div>
+      <div id="h5p-container" class="course-grid"></div>
+    </section>
+  </main>
+</div>
 
 <style>
-  body { font-family: Arial, sans-serif; margin: 24px; }
-  #course-list { max-width: 960px; margin: 0 auto; }
-  .course-section { margin: 24px 0; }
-  .course-link { display: block; margin: 6px 0; color: #1d4ed8; text-decoration: none; }
-  .course-link:hover { text-decoration: underline; }
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Inter", system-ui, -apple-system, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 56px;
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 60%, #e0f2fe 100%);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6366f1;
+  }
+
+  h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+  }
+
+  .subtitle {
+    margin: 0;
+    color: #475569;
+    font-size: 1.05rem;
+  }
+
+  .search {
+    display: grid;
+    gap: 6px;
+    min-width: min(320px, 100%);
+  }
+
+  .search-label {
+    font-size: 0.85rem;
+    color: #475569;
+  }
+
+  .search input {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+  }
+
+  .course-section {
+    margin-top: 32px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.35rem;
+  }
+
+  .count {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+  }
+
+  .course-title {
+    font-weight: 600;
+    color: #0f172a;
+    line-height: 1.3;
+  }
+
+  .course-path {
+    font-size: 0.85rem;
+    color: #64748b;
+    word-break: break-all;
+  }
+
+  .empty-state {
+    padding: 18px;
+    border-radius: 12px;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
 </style>
 
 <script>
+  const state = {
+    storyline: [],
+    h5p: [],
+    filter: ''
+  };
+
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', event => {
+      state.filter = event.target.value.trim().toLowerCase();
+      renderAll();
+    });
+  }
+
   fetch('./links.json')
     .then(res => res.json())
     .then(data => {
-      renderList(data.storyline || [], 'storyline-container', 'Storyline Courses');
-      renderList(data.h5p || [], 'h5p-container', 'H5P Activities');
+      state.storyline = data.storyline || [];
+      state.h5p = data.h5p || [];
+      renderAll();
     })
     .catch(() => {
-      document.getElementById('course-list').innerHTML = '<p>Unable to load course list.</p>';
+      document.getElementById('course-list').innerHTML = '<p class="empty-state">Unable to load course list.</p>';
     });
 
-  function renderList(files, elementId, title) {
+  function renderAll() {
+    renderList(state.storyline, 'storyline-container', 'storyline-count');
+    renderList(state.h5p, 'h5p-container', 'h5p-count');
+  }
+
+  function renderList(files, elementId, countId) {
     const container = document.getElementById(elementId);
-    if (!files.length) {
-      container.innerHTML = `<h3>${title}</h3><p>No items found.</p>`;
+    const count = document.getElementById(countId);
+    const filtered = applyFilter(files);
+
+    if (count) {
+      count.textContent = `${filtered.length} item${filtered.length === 1 ? '' : 's'}`;
+    }
+
+    if (!filtered.length) {
+      container.innerHTML = '<div class="empty-state">No items found.</div>';
       return;
     }
 
-    container.innerHTML = `<h3>${title}</h3>`;
-    files.forEach(path => {
+    container.innerHTML = '';
+    filtered.forEach(path => {
       const link = document.createElement('a');
       link.href = path;
-      link.textContent = path
-        .replace('/story.html', '')
-        .replace('h5p.html?path=', '')
-        .replace('/h5p.html', '');
-      link.className = 'course-link';
+      link.className = 'course-card';
+
+      const title = document.createElement('div');
+      title.className = 'course-title';
+      title.textContent = normalizeLabel(path);
+
+      const meta = document.createElement('div');
+      meta.className = 'course-path';
+      meta.textContent = path;
+
+      link.appendChild(title);
+      link.appendChild(meta);
       container.appendChild(link);
     });
+  }
+
+  function applyFilter(files) {
+    if (!state.filter) {
+      return files;
+    }
+    return files.filter(path => normalizeLabel(path).toLowerCase().includes(state.filter));
+  }
+
+  function normalizeLabel(path) {
+    return path
+      .replace('/story.html', '')
+      .replace('h5p.html?path=', '')
+      .replace('/h5p.html', '')
+      .replace(/\/g, '/');
   }
 </script>
