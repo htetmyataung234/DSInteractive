@@ -15,33 +15,59 @@
 <body>
   <div id="h5p-container"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/main.bundle.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const basePath = params.get('path');
+
+    const CDN_CANDIDATES = [
+      'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/main.bundle.js',
+      'https://unpkg.com/h5p-standalone@3.8.0/dist/main.bundle.js'
+    ];
+
+    function loadScript(url) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
 
     if (!basePath) {
       document.getElementById('h5p-container').innerHTML =
         '<p class="notice">Missing H5P path. Return to the course list and select an H5P item.</p>';
     } else {
+      const container = document.getElementById('h5p-container');
+
       const options = {
-        h5pJsonPath: `${basePath}/h5p.json`,
+        h5pJsonPath: basePath,
         contentJsonPath: `${basePath}/content/content.json`,
         librariesPath: basePath,
         frameJs: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/frame.bundle.js',
         frameCss: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/styles/h5p.css'
       };
 
-      const container = document.getElementById('h5p-container');
+      (async () => {
+        let loaded = false;
+        for (const url of CDN_CANDIDATES) {
+          try {
+            await loadScript(url);
+            loaded = true;
+            break;
+          } catch (err) {
+            // try next CDN
+          }
+        }
 
-      // h5p-standalone exposes H5PStandalone globally
-      // eslint-disable-next-line no-undef
-      if (H5PStandalone && H5PStandalone.H5PStandalone) {
+        if (!loaded || !window.H5PStandalone || !window.H5PStandalone.H5PStandalone) {
+          container.innerHTML = '<p class="notice">H5P runtime failed to load.</p>';
+          return;
+        }
+
         // eslint-disable-next-line no-undef
         new H5PStandalone.H5PStandalone(container, options);
-      } else {
-        container.innerHTML = '<p class="notice">H5P runtime failed to load.</p>';
-      }
+      })();
     }
   </script>
 </body>
