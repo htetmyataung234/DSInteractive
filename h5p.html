@@ -26,10 +26,19 @@
         return;
       }
 
+      const baseRoot = window.location.pathname.replace(/\/h5p\.html.*$/, '');
+      const rootUrl = `${window.location.origin}${baseRoot}`;
+      const joinUrl = (...parts) => parts
+        .filter(Boolean)
+        .map(part => part.replace(/^\/+|\/+$/g, ''))
+        .join('/');
+
+      const h5pFolderUrl = `${rootUrl}/${joinUrl(basePath)}`;
+
       const options = {
-        h5pJsonPath: basePath,
-        frameJs: 'dist/frame.bundle.js',
-        frameCss: 'dist/styles/h5p.css'
+        h5pJsonPath: h5pFolderUrl,
+        frameJs: `${rootUrl}/dist/frame.bundle.js`,
+        frameCss: `${rootUrl}/dist/styles/h5p.css`
       };
 
       const el = document.getElementById('h5p-container');
