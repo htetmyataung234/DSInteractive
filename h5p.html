@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>H5P Viewer</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/main.bundle.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/styles/h5p.css" />
+  <link rel="stylesheet" href="vendor/h5p-standalone/main.bundle.css" />
+  <link rel="stylesheet" href="vendor/h5p-standalone/styles/h5p.css" />
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 24px; }
     #h5p-container { max-width: 1100px; margin: 0 auto; }
@@ -14,12 +14,14 @@
 </head>
 <body>
   <div id="h5p-container"></div>
+  <pre id="h5p-debug" style="white-space: pre-wrap; color: #6b7280;"></pre>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const basePath = params.get('path');
 
     const CDN_CANDIDATES = [
+      'vendor/h5p-standalone/main.bundle.js',
       'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/main.bundle.js',
       'https://unpkg.com/h5p-standalone@3.8.0/dist/main.bundle.js'
     ];
@@ -34,6 +36,9 @@
       });
     }
 
+    const debugEl = document.getElementById('h5p-debug');
+    const log = (msg) => { debugEl.textContent += `${msg}\n`; };
+
     if (!basePath) {
       document.getElementById('h5p-container').innerHTML =
         '<p class="notice">Missing H5P path. Return to the course list and select an H5P item.</p>';
@@ -44,11 +49,27 @@
         h5pJsonPath: basePath,
         contentJsonPath: `${basePath}/content/content.json`,
         librariesPath: basePath,
-        frameJs: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/frame.bundle.js',
-        frameCss: 'https://cdn.jsdelivr.net/npm/h5p-standalone@3.8.0/dist/styles/h5p.css'
+        frameJs: 'vendor/h5p-standalone/frame.bundle.js',
+        frameCss: 'vendor/h5p-standalone/styles/h5p.css'
       };
 
       (async () => {
+        log(`Loading H5P from: ${basePath}`);
+
+        try {
+          const h5pRes = await fetch(`${basePath}/h5p.json`, { cache: 'no-store' });
+          log(`h5p.json: ${h5pRes.status}`);
+        } catch (err) {
+          log('h5p.json: fetch failed');
+        }
+
+        try {
+          const contentRes = await fetch(`${basePath}/content/content.json`, { cache: 'no-store' });
+          log(`content.json: ${contentRes.status}`);
+        } catch (err) {
+          log('content.json: fetch failed');
+        }
+
         let loaded = false;
         for (const url of CDN_CANDIDATES) {
           try {
@@ -56,7 +77,7 @@
             loaded = true;
             break;
           } catch (err) {
-            // try next CDN
+            log(`Failed to load runtime: ${url}`);
           }
         }
 
