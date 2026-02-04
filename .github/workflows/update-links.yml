@@ -9,37 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Scan for Storyline and H5P
+      - name: Generate links.json
         run: |
-          python3 - <<'PY'
-          import json
-          import os
-
-          def is_hidden(path):
-            parts = path.replace('\\', '/').split('/')
-            return any(p.startswith('.') and p not in ('.', '..') for p in parts)
-
-          storyline = []
-          h5p = []
-
-          for root, dirs, files in os.walk('.'):
-            if is_hidden(root):
-              continue
-
-            if 'story.html' in files:
-              rel = os.path.relpath(os.path.join(root, 'story.html'), '.')
-              storyline.append(rel.replace('\\', '/'))
-
-            if 'h5p.json' in files:
-              rel_root = os.path.relpath(root, '.').replace('\\', '/')
-              h5p.append(f'h5p.html?path={rel_root}')
-
-          storyline = sorted(set(storyline))
-          h5p = sorted(set(h5p))
-
-          with open('links.json', 'w', encoding='utf-8') as f:
-            json.dump({'storyline': storyline, 'h5p': h5p}, f, ensure_ascii=False, indent=2)
-          PY
+          python3 scripts/generate_links.py
 
       - name: Commit and Push
         run: |
