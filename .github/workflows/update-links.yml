@@ -9,15 +9,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Scan for HTML Entry Points
+      - name: Scan for Storyline and H5P
         run: |
-          # Finds both story.html and h5p.html
-          # Formats them into a JSON object: {"story": [...], "h5p": [...]}
-          
-          STORY_FILES=$(find . -name "story.html" -not -path '*/.*' | sed 's|^\./||' | jq -R . | jq -s .)
-          H5P_FILES=$(find . -name "h5p.html" -not -path '*/.*' | sed 's|^\./||' | jq -R . | jq -s .)
-          
-          echo "{ \"storyline\": $STORY_FILES, \"h5p\": $H5P_FILES }" > links.json
+          python - <<'PY'
+          import json, os
+
+          def is_hidden(path):
+            parts = path.replace('\\', '/').split('/')
+            return any(p.startswith('.') and p not in ('.', '..') for p in parts)
+
+          storyline = []
+          h5p = []
+
+          for root, dirs, files in os.walk('.'):
+            if is_hidden(root):
+              continue
+
+            if 'story.html' in files:
+              storyline.append(os.path.join(root, 'story.html').lstrip('./'))
+
+            if 'h5p.json' in files:
+              path = root.lstrip('./')
+              h5p.append(f'h5p.html?path={path}')
+
+          storyline = sorted(set(storyline))
+          h5p = sorted(set(h5p))
+
+          with open('links.json', 'w', encoding='utf-8') as f:
+            json.dump({'storyline': storyline, 'h5p': h5p}, f, ensure_ascii=False, indent=2)
+          PY
 
       - name: Commit and Push
         run: |

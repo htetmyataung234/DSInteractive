@@ -1,25 +1,45 @@
-<div id="course-list">Loading courses...</div>
+<main id="course-list">
+  <h2>Interactive Courses</h2>
+  <div id="storyline-container" class="course-section"></div>
+  <div id="h5p-container" class="course-section"></div>
+</main>
+
+<style>
+  body { font-family: Arial, sans-serif; margin: 24px; }
+  #course-list { max-width: 960px; margin: 0 auto; }
+  .course-section { margin: 24px 0; }
+  .course-link { display: block; margin: 6px 0; color: #1d4ed8; text-decoration: none; }
+  .course-link:hover { text-decoration: underline; }
+</style>
 
 <script>
   fetch('./links.json')
-  .then(res => res.json())
-  .then(data => {
-    renderList(data.storyline, 'storyline-container', 'Storyline Courses');
-    renderList(data.h5p, 'h5p-container', 'H5P Activities');
-  });
+    .then(res => res.json())
+    .then(data => {
+      renderList(data.storyline || [], 'storyline-container', 'Storyline Courses');
+      renderList(data.h5p || [], 'h5p-container', 'H5P Activities');
+    })
+    .catch(() => {
+      document.getElementById('course-list').innerHTML = '<p>Unable to load course list.</p>';
+    });
 
-function renderList(files, elementId, title) {
-  const container = document.getElementById(elementId);
-  if (!files.length) return;
+  function renderList(files, elementId, title) {
+    const container = document.getElementById(elementId);
+    if (!files.length) {
+      container.innerHTML = `<h3>${title}</h3><p>No items found.</p>`;
+      return;
+    }
 
-  container.innerHTML = `<h3>${title}</h3>`;
-  files.forEach(path => {
-    const link = document.createElement('a');
-    link.href = path;
-    // Clean up the path for the display name (e.g., DS2 > Module 1)
-    link.textContent = path.replace('/story.html', '').replace('/h5p.html', '');
-    link.className = "course-link"; 
-    container.appendChild(link);
-  });
-}
+    container.innerHTML = `<h3>${title}</h3>`;
+    files.forEach(path => {
+      const link = document.createElement('a');
+      link.href = path;
+      link.textContent = path
+        .replace('/story.html', '')
+        .replace('h5p.html?path=', '')
+        .replace('/h5p.html', '');
+      link.className = 'course-link';
+      container.appendChild(link);
+    });
+  }
 </script>
