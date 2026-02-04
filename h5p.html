@@ -33,7 +33,7 @@
         .map(part => part.replace(/^\/+|\/+$/g, ''))
         .join('/');
 
-      const h5pFolderUrl = `${rootUrl}/${joinUrl(basePath)}`;
+      const h5pFolderUrl = `${rootUrl}/${encodeURI(joinUrl(basePath))}`;
 
       const options = {
         h5pJsonPath: h5pFolderUrl,
