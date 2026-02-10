@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest identifier="00" version="1" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <adlcp:location>metadata.xml</adlcp:location>
+  </metadata>
+  <organizations default="editor.exportDialog.defaults.authorName">
+    <organization identifier="editor.exportDialog.defaults.authorName">
+      <title>၃.၅.၂ H5P - Course Presentation</title>
+      <item identifier="item_00" identifierref="resource_00">
+        <title>၃.၅.၂ H5P - Course Presentation</title>
+        <adlcp:masteryscore>70</adlcp:masteryscore>
+        <metadata>
+          <schema>ADL SCORM</schema>
+          <schemaversion>1.2</schemaversion>
+          <adlcp:location>metadata.xml</adlcp:location>
+        </metadata>
+      </item>
+      <metadata>
+        <schema>ADL SCORM</schema>
+        <schemaversion>1.2</schemaversion>
+        <adlcp:location>metadata.xml</adlcp:location>
+      </metadata>
+    </organization>
+  </organizations>
+  <resources>
+    <metadata>
+      <schema>ADL SCORM</schema>
+      <schemaversion>1.2</schemaversion>
+      <adlcp:location>metadata.xml</adlcp:location>
+    </metadata>
+    <resource identifier="resource_00" type="webcontent" href="index.html" adlcp:scormtype="sco">
+      <metadata>
+        <schema>ADL SCORM</schema>
+        <schemaversion>1.2</schemaversion>
+        <adlcp:location>metadata.xml</adlcp:location>
+      </metadata>
+      <file href="audios/files-1m65n8fD.mp3"/>
+      <file href="audios/files-30ngaPZO.mp3"/>
+      <file href="audios/files-DDULJ8ki.mp3"/>
+      <file href="audios/files-OFAf43FN.mp3"/>
+      <file href="audios/files-OTtAh4ZW.mp3"/>
+      <file href="audios/files-pBIUP1ZA.mp3"/>
+      <file href="h5p-adaptor.js"/>
+      <file href="images/file-6kSD8Pf8.png"/>
+      <file href="images/file-C1SXLL9A.jpg"/>
+      <file href="images/file-Fec3ywYn.jpg"/>
+      <file href="images/file-fGJ4eaWD.png"/>
+      <file href="images/file-nTtVTgRv.jpg"/>
+      <file href="images/file-OPrdI4DX.png"/>
+      <file href="images/file-PESW5Iji.jpg"/>
+      <file href="images/file-pIffEtf5.jpg"/>
+      <file href="images/file-xWxnXoGt.jpg"/>
+      <file href="index.html"/>
+      <file href="SCORM_API_wrapper.js"/>
+    </resource>
+  </resources>
+</manifest>

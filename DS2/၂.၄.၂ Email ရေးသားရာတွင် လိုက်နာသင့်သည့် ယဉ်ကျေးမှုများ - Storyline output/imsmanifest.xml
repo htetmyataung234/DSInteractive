@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="_66CTzuJooxd_course_id" version="1.0" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+      <general>
+        <title>
+          <langstring xml:lang="x-none">၂.၄.၂ Email ရေးသားရာတွင် လိုက်နာသင့်သည့် ယဉ်ကျေးမှုများ</langstring>
+        </title>
+      </general>
+      <lifecycle>
+        <version>
+          <langstring xml:lang="x-none">1</langstring>
+        </version>
+        <status>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Final</langstring>
+          </value>
+        </status>
+      </lifecycle>
+      <metametadata>
+        <metadatascheme>ADL SCORM 1.2</metadatascheme>
+      </metametadata>
+      <educational>
+        <typicallearningtime>
+          <datetime>PT0H0M0S</datetime>
+        </typicallearningtime>
+      </educational>
+      <rights>
+        <cost>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </cost>
+        <copyrightandotherrestrictions>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </copyrightandotherrestrictions>
+      </rights>
+    </lom>
+  </metadata>
+  <organizations default="၂.၄.၂_Email_ရေးသားရာတွင်_လိုက်နာသင့်သည့်_ယဉ်ကျေးမှုများ_ORG">
+    <organization identifier="၂.၄.၂_Email_ရေးသားရာတွင်_လိုက်နာသင့်သည့်_ယဉ်ကျေးမှုများ_ORG">
+      <title>၂.၄.၂ Email ရေးသားရာတွင် လိုက်နာသင့်သည့် ယဉ်ကျေးမှုများ</title>
+      <item identifier="_၂.၄.၂_Email_ရေးသားရာတွင်_လိုက်နာသင့်သည့်_ယဉ်ကျေးမှုများ_SCO" isvisible="true" identifierref="__66CTzuJooxd_course_id_RES">
+        <title>၂.၄.၂ Email ရေးသားရာတွင် လိုက်နာသင့်သည့် ယဉ်ကျေးမှုများ</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="__66CTzuJooxd_course_id_RES" type="webcontent" href="index_lms.html" adlcp:scormtype="sco">
+      <file href="story_content/thumbnail.jpg" />
+      <file href="mobile/698zd7vYwqw.jpg" />
+      <file href="mobile/6PhhhlkhihL.jpg" />
+      <file href="mobile/6SVWen5h4ob.png" />
+      <file href="mobile/60vwvexIKOx.png" />
+      <file href="mobile/6Ino7V4eqmo.jpg" />
+      <file href="mobile/65Np2hcvisR.jpg" />
+      <file href="mobile/6GdC5KIHZJM.jpg" />
+      <file href="meta.xml" />
+      <file href="story_content/user.js" />
+      <file href="html5/data/js/frame.js" />
+      <file href="html5/data/js/6X0suO8qvLt.js" />
+      <file href="html5/data/js/67kOA0AyQ6n.js" />
+      <file href="html5/data/js/6DpECvGuyz1.js" />
+      <file href="html5/data/js/6T7vi1dc61g.js" />
+      <file href="html5/data/js/5vuKIrHAr1t.js" />
+      <file href="html5/data/js/data.js" />
+      <file href="html5/data/js/paths.js" />
+      <file href="html5/data/css/output.min.css" />
+      <file href="html5/lib/scripts/bootstrapper.min.js" />
+      <file href="html5/lib/scripts/frame.desktop.min.js" />
+      <file href="html5/lib/scripts/frame.mobile.min.js" />
+      <file href="html5/lib/scripts/slides.min.js" />
+      <file href="html5/lib/stylesheets/desktop.min.css" />
+      <file href="html5/lib/stylesheets/mobile.min.css" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-bold.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-light.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-regular.woff" />
+      <file href="analytics-frame.html" />
+      <file href="story.html" />
+      <file href="index_lms.html" />
+      <file href="lms/AICCComm.html" />
+      <file href="lms/blank.html" />
+      <file href="lms/browsersniff.js" />
+      <file href="lms/goodbye.html" />
+      <file href="lms/scormdriver.js" />
+    </resource>
+  </resources>
+</manifest>
