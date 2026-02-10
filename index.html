@@ -29,6 +29,14 @@
       </div>
       <div id="h5p-container" class="course-grid"></div>
     </section>
+
+    <section class="course-section">
+      <div class="section-header">
+        <h2>Storyline</h2>
+        <span class="count" id="index-count">0 items</span>
+      </div>
+      <div id="index-container" class="course-grid"></div>
+    </section>
   </main>
 </div>
 
@@ -188,6 +196,7 @@
   const state = {
     storyline: [],
     h5p: [],
+    index: [],
     filter: ''
   };
 
@@ -204,6 +213,7 @@
     .then(data => {
       state.storyline = data.storyline || [];
       state.h5p = data.h5p || [];
+      state.index = data.index || [];
       renderAll();
     })
     .catch(() => {
@@ -213,6 +223,7 @@
   function renderAll() {
     renderList(state.storyline, 'storyline-container', 'storyline-count');
     renderList(state.h5p, 'h5p-container', 'h5p-count');
+    renderList(state.index, 'index-container', 'index-count');
   }
 
   function renderList(files, elementId, countId) {
@@ -261,6 +272,7 @@
       .replace('/story.html', '')
       .replace('h5p.html?path=', '')
       .replace('/h5p.html', '')
+      .replace('/index.html', '')
       .replace(/\\/g, '/');
   }
 </script>
