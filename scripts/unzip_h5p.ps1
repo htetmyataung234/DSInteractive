@@ -5,9 +5,12 @@ param(
 )
 
 $resolvedPath = Resolve-Path -Path $Path -ErrorAction Stop
-$searchOption = if ($Recurse) { '-Recurse' } else { $null }
+$searchOptions = @{}
+if ($Recurse) {
+    $searchOptions['Recurse'] = $true
+}
 
-$h5pFiles = Get-ChildItem -Path $resolvedPath -Filter *.h5p @searchOption
+$h5pFiles = Get-ChildItem -Path $resolvedPath -Filter *.h5p @searchOptions
 
 if (-not $h5pFiles) {
     Write-Host "No .h5p files found under $resolvedPath."

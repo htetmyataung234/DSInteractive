@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="abUJ54xpYnixY" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lom="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<schemaversion>1.2</schemaversion>
+		<lom:lom>
+			<lom:general>
+				<lom:title>
+					<lom:langstring>၄.၅ အပြီးသတ် စစ်ဆေးခြင်း (Final Assessment)</lom:langstring>
+				</lom:title>
+			</lom:general>
+			<lom:educational>
+				<lom:typicallearningtime>
+				<lom:datetime>01:00:00</lom:datetime>
+				</lom:typicallearningtime>
+			</lom:educational>
+		</lom:lom>
+	</metadata>
+	<organizations default="abUJ54xpYnixY_organization">
+		<organization identifier="abUJ54xpYnixY_organization">
+
+			<title>၄.၅ အပြီးသတ် စစ်ဆေးခြင်း (Final Assessment)</title>
+			<item identifier="D5DFD9D8-83D3-44C3-8C86-051A23202220" identifierref="resource">
+				<title>၄.၅ အပြီးသတ် စစ်ဆေးခြင်း (Final Assessment)</title>
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="resource" type="webcontent" adlcp:scormtype="sco" href="res/index.html">
+			<file href="res/data/apple-touch-icon.png"/>
+<file href="res/data/browsersupport.js"/>
+<file href="res/data/favicon.ico"/>
+<file href="res/data/fonts/fnt0.woff"/>
+<file href="res/data/fonts/fnt1.woff"/>
+<file href="res/data/fonts/fnt2.woff"/>
+<file href="res/data/fonts/fnt3.woff"/>
+<file href="res/data/fonts/fnt4.woff"/>
+<file href="res/data/fonts/fnt5.woff"/>
+<file href="res/data/goodbye.html"/>
+<file href="res/data/html5-unsupported.html"/>
+<file href="res/data/images/img-2df0767925a27ab0374dee614f78868733626445.png"/>
+<file href="res/data/images/img-5286ffd63c95f03f87bf1b42a8e29efdfe126d35.png"/>
+<file href="res/data/images/img-55e8f24ba65022a89de3354a359f4d54c5fa89be.png"/>
+<file href="res/data/lms.js"/>
+<file href="res/data/player.js"/>
+<file href="res/index.html"/>
+
+		</resource>
+	</resources>
+</manifest>

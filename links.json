@@ -13,7 +13,13 @@
     "DS3/DS3.5/story.html",
     "DS3/DS323 - Storyline output/story.html",
     "DS3/DS333 - Storyline output/story.html",
-    "DS3/DS343 - Storyline output/story.html"
+    "DS3/DS343 - Storyline output/story.html",
+    "DS4/DS423 - Storyline output/story.html",
+    "DS4/DS424 - Storyline output/story.html",
+    "DS4/DS433 - Storyline output/story.html",
+    "DS4/DS434 - Storyline output/story.html",
+    "DS4/DS443 - Storyline output/story.html",
+    "DS4/DS444 - Storyline output/story.html"
   ],
   "h5p": [
     "h5p.html?path=DS1/DS1_1.1.2",
@@ -30,7 +36,11 @@
     "h5p.html?path=DS2/222gmail-3",
     "h5p.html?path=DS2/231-gmail-4",
     "h5p.html?path=DS2/232-5",
-    "h5p.html?path=DS3/313 H5P - Quiz"
+    "h5p.html?path=DS3/313 H5P - Quiz",
+    "h5p.html?path=DS4/၄.၁.၂ H5P - Course Presentation",
+    "h5p.html?path=DS4/၄.၂.၂ H5P - Course Presentation",
+    "h5p.html?path=DS4/၄.၃.၂ H5P - Course Presentation",
+    "h5p.html?path=DS4/၄.၄.၂ H5P - Course Presentation"
   ],
   "index": [
     "DS1/DS Module 1 End Quiz (Published)/index.html",
@@ -44,6 +54,7 @@
     "DS3/၃.၄.၂ H5P - Course Presentation/index.html",
     "DS3/၃.၅.၂ H5P - Course Presentation/index.html",
     "DS3/၃_၆_Module_3_အပြီးသတ်_စစ်ဆေးခြင်း/res/index.html",
+    "DS4/၄.၅ အပြီးသတ် စစ်ဆေးခြင်း (Final Assessment)/res/index.html",
     "index.html"
   ]
 }
