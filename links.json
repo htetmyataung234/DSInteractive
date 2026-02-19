@@ -19,7 +19,9 @@
     "DS4/DS433 - Storyline output/story.html",
     "DS4/DS434 - Storyline output/story.html",
     "DS4/DS443 - Storyline output/story.html",
-    "DS4/DS444 - Storyline output/story.html"
+    "DS4/DS444 - Storyline output/story.html",
+    "PD4/PD414 - Storyline output/story.html",
+    "PD4/PD423 - Storyline output/story.html"
   ],
   "h5p": [
     "h5p.html?path=DS1/DS1_1.1.2",
@@ -37,10 +39,28 @@
     "h5p.html?path=DS2/231-gmail-4",
     "h5p.html?path=DS2/232-5",
     "h5p.html?path=DS3/313 H5P - Quiz",
+    "h5p.html?path=DS3/၃.၁.၃ H5P - Quiz (2)",
+    "h5p.html?path=DS3/၃.၂.၂ H5P - Course Presentation",
     "h5p.html?path=DS4/၄.၁.၂ H5P - Course Presentation",
     "h5p.html?path=DS4/၄.၂.၂ H5P - Course Presentation",
     "h5p.html?path=DS4/၄.၃.၂ H5P - Course Presentation",
-    "h5p.html?path=DS4/၄.၄.၂ H5P - Course Presentation"
+    "h5p.html?path=DS4/၄.၄.၂ H5P - Course Presentation",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၁.၁ H5P - Quiz",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၁.၂ H5P - Interactive Video",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၁.၃ H5P - Drag and Drop",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၁.၅ H5P - Quiz",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၂.၂ H5P - Course Presentation",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၂.၄ H5P - Quiz",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၃.၁ H5P - Dialog Cards",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၃.၃ H5P - Drag and Drop",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၄.၁ H5P - Quiz",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၄.၂ H5P - Course Presentation",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၄.၃ H5P - Interactive Video",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၄.၄ H5P - Quiz",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၅.၁ H5P - Interactive Video",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၅.၂ H5P - Dialog Cards",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၅.၃ H5P - Quiz",
+    "h5p.html?path=PD4/PDM4 H5P (All)/၄.၆ သင်ခန်းစာ အပြီးသတ် စစ်ဆေးခြင်း"
   ],
   "index": [
     "DS1/DS Module 1 End Quiz (Published)/index.html",
@@ -55,6 +75,7 @@
     "DS3/၃.၅.၂ H5P - Course Presentation/index.html",
     "DS3/၃_၆_Module_3_အပြီးသတ်_စစ်ဆေးခြင်း/res/index.html",
     "DS4/၄.၅ အပြီးသတ် စစ်ဆေးခြင်း (Final Assessment)/res/index.html",
+    "PD4/PDM4 H5P (All)/၄.၂.၁ စိတ်ဝင်စားမှု နိုးကြားစေမည့် ဉာဏ်စမ်းမေးခွန်း (Published)/index.html",
     "index.html"
   ]
 }
