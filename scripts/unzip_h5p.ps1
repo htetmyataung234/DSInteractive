@@ -19,6 +19,8 @@ if (-not $h5pFiles) {
 
 $unzipCount = 0
 
+
+
 foreach ($file in $h5pFiles) {
     $destination = Join-Path $file.DirectoryName $file.BaseName
 
@@ -26,17 +28,24 @@ foreach ($file in $h5pFiles) {
         New-Item -ItemType Directory -Path $destination | Out-Null
     }
 
-    $expandArgs = @{
-        Path = $file.FullName
-        DestinationPath = $destination
+    # Copy .h5p to .zip for extraction
+    $zipPath = [System.IO.Path]::ChangeExtension($file.FullName, ".zip")
+    Copy-Item -Path $file.FullName -Destination $zipPath -Force
+    try {
+        $expandArgs = @{
+            Path = $zipPath
+            DestinationPath = $destination
+        }
+        if ($Force) {
+            $expandArgs['Force'] = $true
+        }
+        Expand-Archive @expandArgs -ErrorAction Stop 2>$null
+        $unzipCount++
+    } catch {
+        Write-Warning "Skipping invalid or corrupted archive: $($file.FullName)"
+    } finally {
+        Remove-Item -Path $zipPath -ErrorAction SilentlyContinue
     }
-
-    if ($Force) {
-        $expandArgs['Force'] = $true
-    }
-
-    Expand-Archive @expandArgs
-    $unzipCount++
 }
 
 Write-Host "Unzipped $unzipCount file(s)."
