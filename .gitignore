@@ -2,3 +2,4 @@
 *.h5p
 *.rar
 .env
+.vscode/
