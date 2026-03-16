@@ -9,6 +9,12 @@
     body { font-family: Arial, sans-serif; margin: 0; padding: 24px; }
     #h5p-container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
     .notice { color: #b91c1c; margin: 16px 0; }
+
+    /* Improve Myanmar glyph rendering and avoid top clipping in H5P text. */
+    #h5p-container, #h5p-container * {
+      font-family: "Myanmar Text", "Noto Sans Myanmar", "Padauk", Arial, sans-serif;
+      line-height: 1.45;
+    }
   </style>
 </head>
 <body>
